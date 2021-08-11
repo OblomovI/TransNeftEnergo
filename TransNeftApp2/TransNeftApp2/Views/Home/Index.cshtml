@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var data = (List<WeatherForecast>)(ViewBag.Json);
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p><table id="example" class="table table-striped table-bordered dt-responsive nowrap" width="100%">
+        @foreach (var wf in data)
+        {
+            <tr>
+                <td>@wf.Date</td>
+                <td>@wf.Summary</td>
+                <td>@wf.TemperatureF</td>
+            </tr>
+        }
+     </table></p>
+</div>
