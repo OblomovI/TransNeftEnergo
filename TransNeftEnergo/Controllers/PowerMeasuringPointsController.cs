@@ -24,9 +24,9 @@ namespace TransNeftEnergo.Controllers
         public async Task<ActionResult<PowerMeasuringPoint>> Get(int id)
         {
             return await _context.PowerMeasuringPoints
-                //.Include(x=>x.CurrentTransformer)
-                //.Include(x=>x.CurrentMeter)
-                //.Include(x=>x.VoltageTransformer)
+                .Include(x=>x.CurrentTransformer)
+                .Include(x=>x.CurrentMeter)
+                .Include(x=>x.VoltageTransformer)
                 .SingleOrDefaultAsync(x=>x.Id == id);
 
         }
@@ -37,7 +37,7 @@ namespace TransNeftEnergo.Controllers
             var meter = _context.CurrentMeters.SingleOrDefault(x => x.Id == powerMeasuringPoint.CurrentMeterId);
             var currentTransformer = _context.CurrentTransformers.SingleOrDefault(x => x.Id == powerMeasuringPoint.CurrentTransformerId);
             var voltageTransformer = _context.VoltageTransformers.SingleOrDefault(x => x.Id == powerMeasuringPoint.VoltageTransformerId);
-            var consumpObj = _context.ConsumptionObjects.SingleOrDefault(x => x.Id == powerMeasuringPoint.ConsumptionObjectId);
+            var consumptionObject = _context.ConsumptionObjects.SingleOrDefault(x => x.Id == powerMeasuringPoint.ConsumptionObjectId);
 
             var newEntity = new PowerMeasuringPoint
             {
@@ -45,7 +45,7 @@ namespace TransNeftEnergo.Controllers
                 CurrentMeter = meter,
                 CurrentTransformer = currentTransformer,
                 VoltageTransformer = voltageTransformer, 
-                ConsumptionObject = consumpObj
+                ConsumptionObject = consumptionObject
             };
             _context.PowerMeasuringPoints.Add(newEntity);
 
