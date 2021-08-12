@@ -9,6 +9,7 @@ namespace TransNeftEnergo.Models
         public int Number { get; set; }
         public string VoltageTransformerType { get; set; }
         public DateTime InspectionDate { get; set; }
+        public TimeSpan InspectionPeriod { get; set; }
         public double TransformationCoefficient { get; set; }
 
         public IDbItem Initialize()
@@ -18,8 +19,10 @@ namespace TransNeftEnergo.Models
 
             item.Number = rnd.Next(0, 50);
             item.InspectionDate = new DateTime(2021, 1, 1).AddDays(rnd.NextDouble() * 100);
+            item.InspectionPeriod = new TimeSpan(rnd.Next(0, 30), 0, 0, 0);
             item.VoltageTransformerType = "Двухобмоточный";
             item.TransformationCoefficient = rnd.NextDouble() * 100;
+
 
             return item;
         }
