@@ -26,7 +26,7 @@ namespace TransNeftEnergo.Controllers
                .Where(c => c.FromTime.Year == year || c.ToTime.Year == year)
                .Select(x=> new CalculatingMeterDTO 
                { 
-                   PowerSuplyPointName = x.CalculatingMeter.PowerSupplyPoint.Name,
+                   PowerSupplyPointName = x.CalculatingMeter.PowerSupplyPoint.Name,
                    Id = x.CalculatingMeterId,
                    FromTime = x.FromTime,
                    ToTime = x.ToTime
