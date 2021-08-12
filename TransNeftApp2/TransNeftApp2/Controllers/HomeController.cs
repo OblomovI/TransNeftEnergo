@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using TransNeftApp2.Models;
 using TransNeftEnergo.Models;
 using TransNeftEnergo.DTO;
+using System.Net.Http.Headers;
+using System.Net.Http;
 
 namespace TransNeftApp2.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private static readonly HttpClient client = new HttpClient();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -23,10 +26,10 @@ namespace TransNeftApp2.Controllers
 
         public async Task<IActionResult> AddMeasuringPoint()
         {
-            ViewBag.currentMeters = await GetListFromApi<IdNumber>(@"http://10.191.99.145/api/CurrentMeters");
-            ViewBag.currentTransformers = await GetListFromApi<IdNumber>(@"http://10.191.99.145/api/CurrentTransformers");
-            ViewBag.voltageTransformers = await GetListFromApi<IdNumber>(@"http://10.191.99.145/api/VoltageTransformers");
-            ViewBag.consObjects = await GetListFromApi<IdName>(@"http://10.191.99.145/api/ConsumptionObjects");
+            ViewBag.currentMeters = await GetListFromApi<IdNumber>(@"http://127.0.0.1:8050/api/CurrentMeters");
+            ViewBag.currentTransformers = await GetListFromApi<IdNumber>(@"http://127.0.0.1:8050/api/CurrentTransformers");
+            ViewBag.voltageTransformers = await GetListFromApi<IdNumber>(@"http://127.0.0.1:8050/api/VoltageTransformers");
+            ViewBag.consObjects = await GetListFromApi<IdName>(@"http://127.0.0.1:8050/api/ConsumptionObjects");
             return View();
         }
 
@@ -50,16 +53,13 @@ namespace TransNeftApp2.Controllers
 
         private async Task<List<TEntity>> GetListFromApi<TEntity>(string path)
         {
-            var result = new List<TEntity>();
-            var request = WebRequest.Create(path);
-            var response = await request.GetResponseAsync();
-            using (var stream = response.GetResponseStream())
-            {
-                using var reader = new StreamReader(stream);
-                string json = reader.ReadToEnd();
-                result = JsonConvert.DeserializeObject<List<TEntity>>(json);
-            }
-            response.Close();
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var response = await client.GetStringAsync(path);
+            var result = JsonConvert.DeserializeObject<List<TEntity>>(response);
+
             return result;
         }
     }
