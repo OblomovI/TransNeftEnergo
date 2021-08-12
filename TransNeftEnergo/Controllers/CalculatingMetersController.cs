@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TransNeftEnergo.DTO;
-using TransNeftEnergo.Models;
 
 namespace TransNeftEnergo.Controllers
 {
@@ -28,10 +26,11 @@ namespace TransNeftEnergo.Controllers
                .Where(c => c.FromTime.Year == year || c.ToTime.Year == year)
                .Select(x=> new CalculatingMeterDTO 
                { 
-                   PowerSupplyPointName = x.PowerMeasuringPoint.Name,
-                   PowerMeasuringPointId = x.CalculatingMeter.Id,
+                   PowerSuplyPointName = x.CalculatingMeter.PowerSupplyPoint.Name,
+                   Id = x.CalculatingMeterId,
                    FromTime = x.FromTime,
                    ToTime = x.ToTime
+                   
                });
 
             return await result.ToListAsync();           
