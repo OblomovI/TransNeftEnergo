@@ -26,6 +26,14 @@ namespace TransNeftApp2.Controllers
             ViewBag.currentMeters = await GetListFromApi<IdNumber>(@"http://10.191.99.145/api/CurrentMeters");
             ViewBag.currentTransformers = await GetListFromApi<IdNumber>(@"http://10.191.99.145/api/CurrentTransformers");
             ViewBag.voltageTransformers = await GetListFromApi<IdNumber>(@"http://10.191.99.145/api/VoltageTransformers");
+            ViewBag.consObjects = await GetListFromApi<IdName>(@"http://10.191.99.145/api/ConsumptionObjects");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddMeasuringPoint(PostPowerMeasuringPointParam p)
+        {
+            ViewBag.Message = "Точка добавлена";
             return View();
         }
 
