@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using TransNeftEnergo.Mock;
 
 namespace TransNeftEnergo.Models
@@ -12,12 +13,14 @@ namespace TransNeftEnergo.Models
         public List<PowerMeasuringPointToCalculatingMeter> PowerMeasuringPointToCalculatingMeters { get; set; }
 
         public int ConsumptionObjectId { get; set; }
-        public ConsumptionObject ConsumptionObject { get; set; }
-
-        public CurrentMeter CurrentMeter { get; set; }
         
+        public ConsumptionObject ConsumptionObject { get; set; }
+        [ForeignKey("CurrentMeterId")]
+        public CurrentMeter CurrentMeter { get; set; }
+        [ForeignKey("CurrentTransformerId")]
         public CurrentTransformer CurrentTransformer { get; set; }
 
+        [ForeignKey("VoltageTransformerId")]
         public VoltageTransformer VoltageTransformer { get; set; }
 
         public PowerMeasuringPoint()

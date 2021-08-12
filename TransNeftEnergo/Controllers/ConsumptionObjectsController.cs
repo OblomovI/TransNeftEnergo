@@ -26,7 +26,9 @@ namespace TransNeftEnergo.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IdName>>> GetConsumptionObjects()
         {
-            return await _context.ConsumptionObjects.Select(x => new IdName { Id = x.Id, Name = x.Name }).ToListAsync();
+            return await _context.ConsumptionObjects
+                .Select(x => new IdName { Id = x.Id, Name = x.Name })
+                .ToListAsync();
         }
     }
 }

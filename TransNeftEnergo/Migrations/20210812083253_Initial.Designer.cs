@@ -10,8 +10,8 @@ using TransNeftEnergo;
 namespace TransNeftEnergo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210812080440_Update_1")]
-    partial class Update_1
+    [Migration("20210812083253_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -95,8 +95,8 @@ namespace TransNeftEnergo.Migrations
                     b.Property<DateTime>("InspectionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("InspectionPeriod")
-                        .HasColumnType("time");
+                    b.Property<int>("InspectionPeriod")
+                        .HasColumnType("int");
 
                     b.Property<string>("MeterType")
                         .HasColumnType("nvarchar(max)");
@@ -122,8 +122,8 @@ namespace TransNeftEnergo.Migrations
                     b.Property<DateTime>("InspectionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("InspectionPeriod")
-                        .HasColumnType("time");
+                    b.Property<int>("InspectionPeriod")
+                        .HasColumnType("int");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
@@ -243,8 +243,8 @@ namespace TransNeftEnergo.Migrations
                     b.Property<DateTime>("InspectionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("InspectionPeriod")
-                        .HasColumnType("time");
+                    b.Property<int>("InspectionPeriod")
+                        .HasColumnType("int");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
