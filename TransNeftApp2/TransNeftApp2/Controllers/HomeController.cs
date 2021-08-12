@@ -21,19 +21,9 @@ namespace TransNeftApp2.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult AddMeasuringPoint()
         {
-            var request = WebRequest.Create("http://10.191.99.145/weatherforecast");
-            var response = request.GetResponse();
-            using (var stream = response.GetResponseStream())
-            {
-                using (var reader = new StreamReader(stream))
-                {
-                    string json = reader.ReadToEnd();
-                    ViewBag.Json = JsonConvert.DeserializeObject<List<WeatherForecast>>(json);
-                }
-            }
-            response.Close();
+            var currentMeters = await GetListFromApi<>
             return View();
         }
 
@@ -46,6 +36,21 @@ namespace TransNeftApp2.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private async Task<List<TEntity>> GetListFromApi<TEntity>(string path)
+        {
+            var result = new List<TEntity>();
+            var request = WebRequest.Create(path);
+            var response = await request.GetResponseAsync();
+            using (var stream = response.GetResponseStream())
+            {
+                using var reader = new StreamReader(stream);
+                string json = reader.ReadToEnd();
+                result = JsonConvert.DeserializeObject<List<TEntity>>(json);
+            }
+            response.Close();
+            return result;
         }
     }
 }

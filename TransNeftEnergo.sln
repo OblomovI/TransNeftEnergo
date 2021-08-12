@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransNeftEnergo", "TransNef
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransNeftApp2", "TransNeftApp2\TransNeftApp2\TransNeftApp2.csproj", "{0310F8EB-A476-44D6-9744-7FDE0FE62E30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransNeftEnergo.Entities", "TransNeftEnergo.Entities\TransNeftEnergo.Entities.csproj", "{BA58ED57-7227-4E63-9B86-8CEBF3A43F58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0310F8EB-A476-44D6-9744-7FDE0FE62E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0310F8EB-A476-44D6-9744-7FDE0FE62E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0310F8EB-A476-44D6-9744-7FDE0FE62E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA58ED57-7227-4E63-9B86-8CEBF3A43F58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA58ED57-7227-4E63-9B86-8CEBF3A43F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA58ED57-7227-4E63-9B86-8CEBF3A43F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA58ED57-7227-4E63-9B86-8CEBF3A43F58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
