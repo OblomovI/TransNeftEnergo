@@ -1,10 +1,31 @@
 ﻿@using TransNeftEnergo.DTO;
-
+<label>Счетчик электроэнергии</label>
 <select>
     @{ var currentMeters = (List<IdNumber>)(ViewBag.currentMeters);
-        foreach( var cm in currentMeters )
+        foreach (var cm in currentMeters)
         {
             <option value="@cm.Id">@cm.Number</option>
         }
     }
 </select>
+<br />
+<label>Трансформатор тока</label>
+<select>
+    @{ var currentTransformers = (List<IdNumber>)(ViewBag.currentTransformers);
+        foreach (var cm in currentTransformers)
+        {
+            <option value="@cm.Id">@cm.Number</option>
+        }
+    }
+</select>
+<br />
+<label>Трансформатор напряжения</label>
+<select>
+    @{ var voltageTransformers = (List<IdNumber>)(ViewBag.voltageTransformers);
+        foreach (var cm in voltageTransformers)
+        {
+            <option value="@cm.Id">@cm.Number</option>
+        }
+    }
+</select>
+<br />
