@@ -10,6 +10,8 @@ namespace TransNeftEnergo
             {
                 var AllOrganization = context.Organizations;
                 context.Organizations.RemoveRange(AllOrganization);
+                context.SaveChanges();
+
                 context.CurrentTransformers.RemoveRange(context.CurrentTransformers);
                 context.VoltageTransformers.RemoveRange(context.VoltageTransformers);
                 context.CurrentMeters.RemoveRange(context.CurrentMeters);

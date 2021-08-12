@@ -93,8 +93,8 @@ namespace TransNeftEnergo.Migrations
                     b.Property<DateTime>("InspectionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("InspectionPeriod")
-                        .HasColumnType("time");
+                    b.Property<int>("InspectionPeriod")
+                        .HasColumnType("int");
 
                     b.Property<string>("MeterType")
                         .HasColumnType("nvarchar(max)");
@@ -120,8 +120,8 @@ namespace TransNeftEnergo.Migrations
                     b.Property<DateTime>("InspectionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("InspectionPeriod")
-                        .HasColumnType("time");
+                    b.Property<int>("InspectionPeriod")
+                        .HasColumnType("int");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
@@ -241,8 +241,8 @@ namespace TransNeftEnergo.Migrations
                     b.Property<DateTime>("InspectionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("InspectionPeriod")
-                        .HasColumnType("time");
+                    b.Property<int>("InspectionPeriod")
+                        .HasColumnType("int");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");

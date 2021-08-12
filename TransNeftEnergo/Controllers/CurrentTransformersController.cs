@@ -26,8 +26,19 @@ namespace TransNeftEnergo.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IdNumber>>> GetAll()
         {
-            return await _context.CurrentTransformers.Select(x => new IdNumber {Id = x.Id, Number = x.Number }).ToListAsync();
+            return await _context.CurrentTransformers
+                .Select(x => new IdNumber {Id = x.Id, Number = x.Number })
+                .ToListAsync();
         }
 
+        // GET: api/ExpiredCurrentTransformers/Id
+        [HttpGet("{consumptionObjectId}")]
+        public async Task<ActionResult<IEnumerable<IdNumber>>> GetAllExpired(int consumptionObjectId)
+        {
+            return await _context.CurrentTransformers
+                .Where(x => x.InspectionDate.AddDays(x.InspectionPeriod) < DateTime.Now && x.PowerMeasuringPoint.ConsumptionObject.Id == consumptionObjectId)
+                .Select(x => new IdNumber { Id = x.Id, Number = x.Number })
+                .ToListAsync();
+        }
     }
 }

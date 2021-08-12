@@ -15,7 +15,8 @@ namespace TransNeftEnergo.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Number = table.Column<int>(nullable: false),
                     MeterType = table.Column<string>(nullable: true),
-                    InspectionDate = table.Column<DateTime>(nullable: false)
+                    InspectionDate = table.Column<DateTime>(nullable: false),
+                    InspectionPeriod = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,6 +32,7 @@ namespace TransNeftEnergo.Migrations
                     Number = table.Column<int>(nullable: false),
                     CurrentTransformerType = table.Column<string>(nullable: true),
                     InspectionDate = table.Column<DateTime>(nullable: false),
+                    InspectionPeriod = table.Column<int>(nullable: false),
                     TransformationCoefficient = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
@@ -61,6 +63,7 @@ namespace TransNeftEnergo.Migrations
                     Number = table.Column<int>(nullable: false),
                     VoltageTransformerType = table.Column<string>(nullable: true),
                     InspectionDate = table.Column<DateTime>(nullable: false),
+                    InspectionPeriod = table.Column<int>(nullable: false),
                     TransformationCoefficient = table.Column<double>(nullable: false)
                 },
                 constraints: table =>

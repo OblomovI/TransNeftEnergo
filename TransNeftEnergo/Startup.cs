@@ -33,7 +33,7 @@ namespace TransNeftEnergo
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                MockDb.Initialize();
+                //MockDb.Initialize();
             }
 
             app.UseOpenApi();
