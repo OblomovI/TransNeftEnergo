@@ -11,18 +11,30 @@ namespace TransNeftApp2.Controllers
         {
         }
 
-        public async Task<IActionResult> ExpiredEntities(string entityType)
+        public async Task<IActionResult> Index(string entityType, int? consObjId)
         {
+            if (consObjId != null)
+            {
+                ViewBag.data = await GetListFromApi<ExpiredEntityDTO>($"{rootApiUrl}{entityType}/{consObjId}");
+            }
             ViewBag.consObjects = await GetListFromApi<IdName>($"{rootApiUrl}ConsumptionObjects");
             ViewBag.entityType = entityType;
-            return View();
-        }
+            var rusName = "";
+            switch (entityType)
+            {
+                case "CurrentMeters":
+                    rusName = "Счетчики электроэнергии";
+                    break;
 
-        public async Task<IActionResult> ExpiredEntities(string entityType, int consObjId)
-        {
-            ViewBag.consObjects = await GetListFromApi<IdName>($"{rootApiUrl}ConsumptionObjects");
-            ViewBag.entityType = entityType;
-            ViewBag.data = await GetListFromApi<ExpiredEntityDTO>($"{rootApiUrl}{entityType}/{consObjId}");
+                case "CurrentTransformers":
+                    rusName = "Трансформаторы тока";
+                    break;
+
+                case "VoltageTransformers":
+                    rusName = "Трансформаторы напряжения";
+                    break;
+            }
+            ViewBag.entityRusName = rusName;
             return View();
         }
     }

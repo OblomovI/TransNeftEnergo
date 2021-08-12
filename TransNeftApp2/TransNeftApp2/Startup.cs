@@ -54,6 +54,10 @@ namespace TransNeftApp2
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "expired",
+                    pattern: "{controller=ExpiredEntity}/{action=Index}/{entityType}/{consObjId?}");
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

@@ -13,6 +13,11 @@ namespace TransNeftApp2.Controllers
         {
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> AddMeasuringPoint()
         {
             ViewBag.currentMeters = await GetListFromApi<IdNumber>($"{rootApiUrl}CurrentMeters");
@@ -29,6 +34,16 @@ namespace TransNeftApp2.Controllers
             var data = await client.PostAsync($"{rootApiUrl}PowerMeasuringPoints", content);
             ViewBag.NewEntity = await data.Content.ReadFromJsonAsync<PowerMeasuringPoint>();
             ViewBag.Message = "Точка добавлена";
+            return View();
+        }
+
+        public async Task<IActionResult> CalculatingMeters(int? year)
+        {
+            ViewBag.year = year;
+            if (year != null)
+            {
+                ViewBag.data = await GetListFromApi<CalculatingMeterDTO>($"{rootApiUrl}CalculatingMeters/{year}");
+            }
             return View();
         }
     }
