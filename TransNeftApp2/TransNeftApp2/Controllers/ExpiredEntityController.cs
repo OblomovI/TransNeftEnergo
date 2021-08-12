@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using TransNeftEnergo.DTO;
-using TransNeftEnergo.Entities.DTO;
 
 namespace TransNeftApp2.Controllers
 {
