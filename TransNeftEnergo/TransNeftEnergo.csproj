@@ -16,5 +16,9 @@
     <PackageReference Include="NSwag.AspNetCore" Version="13.13.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TransNeftEnergo.Entities\TransNeftEnergo.Entities.csproj" />
+  </ItemGroup>
+
 
 </Project>

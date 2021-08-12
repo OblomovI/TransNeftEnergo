@@ -1,0 +1,10 @@
+﻿@using TransNeftEnergo.DTO;
+
+<select>
+    @{ var currentMeters = (List<IdNumber>)(ViewBag.currentMeters);
+        foreach( var cm in currentMeters )
+        {
+            <option value="@cm.Id">@cm.Number</option>
+        }
+    }
+</select>
