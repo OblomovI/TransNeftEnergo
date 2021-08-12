@@ -27,7 +27,7 @@ namespace TransNeftEnergo.Controllers
                 .Include(x=>x.CurrentTransformer)
                 .Include(x=>x.CurrentMeter)
                 .Include(x=>x.VoltageTransformer)
-                .SingleOrDefaultAsync(x=>x.Id == id);
+                .SingleOrDefaultAsync(x => x.Id == id);
 
         }
         // POST: api/PowerMeasuringPoints

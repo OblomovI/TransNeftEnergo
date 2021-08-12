@@ -1,7 +1,21 @@
 ﻿@using TransNeftEnergo.DTO;
+@using TransNeftEnergo.Models;
 @if (ViewBag.Message != null)
 {
+    var p = (PowerMeasuringPoint)(ViewBag.NewEntity);
     @ViewBag.Message
+    <br />
+    <text>Id:@p.Id</text>
+    <br />
+    <text>Наименование:@p.Name</text>
+    <br />
+    <text>Объект потребления:@p.ConsumptionObject.Name</text>
+    <br />
+    <text>Счетчик электроэнергии:@p.CurrentMeter.Number</text>
+    <br />
+    <text>Трансформатор тока:@p.CurrentTransformer.Number</text>
+    <br />
+    <text>Трансофрматор напряжения:@p.VoltageTransformer.Number</text>
     <br />
     <a href="">Добавить еще</a>
 }
