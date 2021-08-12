@@ -11,6 +11,7 @@ using TransNeftEnergo.Models;
 using TransNeftEnergo.DTO;
 using System.Net.Http.Headers;
 using System.Net.Http;
+using System.Text;
 
 namespace TransNeftApp2.Controllers
 {
@@ -22,6 +23,9 @@ namespace TransNeftApp2.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task<IActionResult> AddMeasuringPoint()
@@ -34,8 +38,11 @@ namespace TransNeftApp2.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddMeasuringPoint(PostPowerMeasuringPointParam p)
+        public async Task<IActionResult> AddMeasuringPoint(PostPowerMeasuringPointParam p)
         {
+            var json = Json(p);
+            var content = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+            await client.PostAsync("http://127.0.0.1:8050/api/PowerMeasuringPoints", content);
             ViewBag.Message = "Точка добавлена";
             return View();
         }
@@ -53,10 +60,6 @@ namespace TransNeftApp2.Controllers
 
         private async Task<List<TEntity>> GetListFromApi<TEntity>(string path)
         {
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-
             var response = await client.GetStringAsync(path);
             var result = JsonConvert.DeserializeObject<List<TEntity>>(response);
 

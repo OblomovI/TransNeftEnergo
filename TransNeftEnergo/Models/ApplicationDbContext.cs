@@ -20,7 +20,7 @@ namespace TransNeftEnergo
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=NVG-1501\SQLEXPRESS;Database=myDataBase;User Id=sa;Password=SuperPassword123;");
+            optionsBuilder.UseSqlServer(@"Server=(local)\SQLEXPRESS;Database=myDataBase;User Id=sa;Password=SuperPassword123;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
