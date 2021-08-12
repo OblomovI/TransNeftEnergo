@@ -7,8 +7,8 @@ namespace TransNeftEnergo.DTO
 {
     public class CalculatingMeterDTO
     {
-        public string PowerSupplyPointName { get; set; }
-        public int PowerMeasuringPointId { get; set; }
+        public int Id { get; set; }
+        public string PowerSuplyPointName { get; set; }
         public DateTime FromTime { get; set; }
         public DateTime ToTime { get; set; }
     }
