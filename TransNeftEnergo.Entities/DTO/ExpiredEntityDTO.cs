@@ -1,14 +1,11 @@
 ﻿using System;
 
-namespace TransNeftEnergo.Entities.DTO
+namespace TransNeftEnergo.DTO
 {
-    public class ExpiredEntityDTO
+    public class ExpiredEntityDTO : IdNumber
     {
-        public int Id { get; set; }
-        public int Number { get; set; }
         public string Type { get; set; }
         public DateTime InspectionDate { get; set; }
         public DateTime ExpiredDate { get; set; }
-
     }
 }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TransNeftApp2.Data;
+using System.Threading.Tasks;
 using TransNeftEnergo.DTO;
+using TransNeftEnergo.Entities.DTO;
 
 namespace TransNeftApp2.Controllers
 {
@@ -28,7 +23,7 @@ namespace TransNeftApp2.Controllers
         {
             ViewBag.consObjects = await GetListFromApi<IdName>($"{rootApiUrl}ConsumptionObjects");
             ViewBag.entityType = entityType;
-            ViewBag.data = await GetListFromApi<IdNumber>($"{rootApiUrl}{entityType}/{consObjId}");
+            ViewBag.data = await GetListFromApi<ExpiredEntityDTO>($"{rootApiUrl}{entityType}/{consObjId}");
             return View();
         }
     }
