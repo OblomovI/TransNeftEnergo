@@ -12,6 +12,7 @@ using TransNeftEnergo.DTO;
 using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Text;
+using System.Net.Http.Json;
 
 namespace TransNeftApp2.Controllers
 {
@@ -40,8 +41,7 @@ namespace TransNeftApp2.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMeasuringPoint(PostPowerMeasuringPointParam p)
         {
-            var json = Json(p);
-            var content = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+            var content = JsonContent.Create(p);
             await client.PostAsync("http://127.0.0.1:8050/api/PowerMeasuringPoints", content);
             ViewBag.Message = "Точка добавлена";
             return View();
