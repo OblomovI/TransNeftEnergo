@@ -24,7 +24,6 @@ namespace TransNeftEnergo.Controllers
         [HttpGet("{year}")]
         public async Task<ActionResult<IEnumerable<CalculatingMeterDTO>>> GetCalculatingMeter(int year)
         {
-
             var result = _context.PowerMeasuringPointToCalculatingMeter
                .Where(c => c.FromTime.Year == year || c.ToTime.Year == year)
                .Select(x=> new CalculatingMeterDTO 
