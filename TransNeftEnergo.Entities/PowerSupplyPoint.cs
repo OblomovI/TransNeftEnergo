@@ -11,7 +11,6 @@ namespace TransNeftEnergo.Models
 
         public int ConsumptionObjectId { get; set; }
         public ConsumptionObject ConsumptionObject { get; set; }
-
         public CalculatingMeter CalculatingMeter { get; set; }
 
         public IDbItem Initialize()
@@ -19,7 +18,7 @@ namespace TransNeftEnergo.Models
             var rnd = new Random();
             var item = new PowerSupplyPoint();
 
-            item.Name = $"Точка поставки энергии {rnd.Next(0,100)}";
+            item.Name = $"Точка поставки энергии {rnd.Next(0,5000)}";
             item.MaximumPower = rnd.NextDouble() * 100;
             item.CalculatingMeter = new CalculatingMeter().Initialize() as CalculatingMeter;
 

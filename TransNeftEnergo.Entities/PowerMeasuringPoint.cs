@@ -36,10 +36,8 @@ namespace TransNeftEnergo.Models
 
             item.CurrentTransformer = new CurrentTransformer().Initialize() as CurrentTransformer;
             item.CurrentMeter = new CurrentMeter().Initialize() as CurrentMeter;
-            item.Name = $"Точка измерения электроэнергии {rnd.Next(0, 50)}";
+            item.Name = $"Точка измерения электроэнергии {rnd.Next(0, 5000)}";
             item.VoltageTransformer = new VoltageTransformer().Initialize() as VoltageTransformer;
-
-            //item.PowerMeasuringPointToCalculatingMeters.Add(new PowerMeasuringPointToCalculatingMeter().Initialize() as PowerMeasuringPointToCalculatingMeter);
 
             return item;
 

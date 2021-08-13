@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using TransNeftEnergo.Mock;
 
 namespace TransNeftEnergo.Models
@@ -22,7 +21,6 @@ namespace TransNeftEnergo.Models
             item.MeterType = "Электронный";
             item.InspectionDate = new DateTime(2021, 1, 1).AddDays(rnd.NextDouble() * 100);
             item.InspectionPeriod = rnd.Next(0, 30);
-
 
             return item;
         }

@@ -15,8 +15,8 @@ namespace TransNeftEnergo.Models
         {
             var item = new Organization();
 
-            item.Name = "Organization 1";
-            item.Address = "Adress 1";
+            item.Name = "Орагнизация 1";
+            item.Address = "Улица 1";
             item.ChildOrganizations = new List<ChildOrganization>()
             { 
                 new ChildOrganization().Initialize() as ChildOrganization,

@@ -6,7 +6,6 @@ namespace TransNeftEnergo.Models
     public class CalculatingMeter: IDbItem
     {
         public int Id { get; set; }
-
         public int PowerSupplyPointId { get; set; }
         public PowerSupplyPoint PowerSupplyPoint { get; set; }
 

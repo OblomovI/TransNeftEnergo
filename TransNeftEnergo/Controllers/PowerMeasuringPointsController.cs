@@ -47,6 +47,7 @@ namespace TransNeftEnergo.Controllers
                 VoltageTransformer = voltageTransformer, 
                 ConsumptionObject = consumptionObject
             };
+            
             _context.PowerMeasuringPoints.Add(newEntity);
 
             await _context.SaveChangesAsync();
