@@ -23,15 +23,15 @@ namespace TransNeftApp2.Controllers
             switch (entityType)
             {
                 case "CurrentMeters":
-                    rusName = "Счетчики электроэнергии";
+                    rusName = "Счетчики электроэнергии c закончившимся сроком поверки";
                     break;
 
                 case "CurrentTransformers":
-                    rusName = "Трансформаторы тока";
+                    rusName = "Трансформаторы тока c закончившимся сроком поверки";
                     break;
 
                 case "VoltageTransformers":
-                    rusName = "Трансформаторы напряжения";
+                    rusName = "Трансформаторы напряжения c закончившимся сроком поверки";
                     break;
             }
             ViewBag.entityRusName = rusName;

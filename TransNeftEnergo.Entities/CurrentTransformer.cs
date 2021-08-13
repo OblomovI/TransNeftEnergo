@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using TransNeftEnergo.Mock;
 
 namespace TransNeftEnergo.Models
@@ -12,6 +11,7 @@ namespace TransNeftEnergo.Models
         public DateTime InspectionDate { get; set; }
         public int InspectionPeriod { get; set; }
         public double TransformationCoefficient { get; set; }
+
         public PowerMeasuringPoint PowerMeasuringPoint { get; set; }
 
 

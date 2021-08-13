@@ -9,9 +9,9 @@ namespace TransNeftEnergo.Models
         public int Id { get; set; }
         public string Name { get; set;}
         public string Address { get; set; }
+
         public int ChildOrganizationId { get; set; }
         public ChildOrganization ChildOrganization { get; set; }
-
         public List<PowerSupplyPoint> PowerSupplyPoints { get; set; }
         public List<PowerMeasuringPoint> PowerMeasuringPoints { get; set; }
 

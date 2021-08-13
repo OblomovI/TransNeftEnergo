@@ -10,6 +10,7 @@ namespace TransNeftEnergo.Models
         public string MeterType { get; set; }
         public DateTime InspectionDate { get; set; }
         public int InspectionPeriod { get; set; }
+
         public PowerMeasuringPoint PowerMeasuringPoint { get; set; }
 
         public IDbItem Initialize()

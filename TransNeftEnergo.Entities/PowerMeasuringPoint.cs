@@ -11,15 +11,12 @@ namespace TransNeftEnergo.Models
         public string Name { get; set; }
 
         public List<PowerMeasuringPointToCalculatingMeter> PowerMeasuringPointToCalculatingMeters { get; set; }
-
         public int ConsumptionObjectId { get; set; }
-        
         public ConsumptionObject ConsumptionObject { get; set; }
         [ForeignKey("CurrentMeterId")]
         public CurrentMeter CurrentMeter { get; set; }
         [ForeignKey("CurrentTransformerId")]
         public CurrentTransformer CurrentTransformer { get; set; }
-
         [ForeignKey("VoltageTransformerId")]
         public VoltageTransformer VoltageTransformer { get; set; }
 
@@ -34,9 +31,9 @@ namespace TransNeftEnergo.Models
             var rnd = new Random();
             var item = new PowerMeasuringPoint();
 
-            item.CurrentTransformer = new CurrentTransformer().Initialize() as CurrentTransformer;
-            item.CurrentMeter = new CurrentMeter().Initialize() as CurrentMeter;
             item.Name = $"Точка измерения электроэнергии {rnd.Next(0, 5000)}";
+            item.CurrentTransformer = new CurrentTransformer().Initialize() as CurrentTransformer;
+            item.CurrentMeter = new CurrentMeter().Initialize() as CurrentMeter; 
             item.VoltageTransformer = new VoltageTransformer().Initialize() as VoltageTransformer;
 
             return item;

@@ -38,6 +38,6 @@ namespace TransNeftEnergo
                 .HasForeignKey(pc => pc.CalculatingMeterId)
                 .OnDelete(DeleteBehavior.NoAction);
         }
-        public DbSet<TransNeftEnergo.Models.PowerMeasuringPointToCalculatingMeter> PowerMeasuringPointToCalculatingMeter { get; set; }
+        public DbSet<PowerMeasuringPointToCalculatingMeter> PowerMeasuringPointToCalculatingMeter { get; set; }
     }
 }
